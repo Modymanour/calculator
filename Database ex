@@ -1,0 +1,52 @@
+create database RetailStore;
+
+create table customers(
+	Customer_ID int primary key,
+	firstname varchar(50),
+	lastname varchar(50),
+	email varchar(50),
+	RegistrationDate date
+);
+
+Create table products(
+	Product_ID int primary key,
+	Productname varchar(50),
+	category varchar(50),
+	price float,
+	StockQuantity int
+);
+ 
+CREATE TABLE Orders (
+    OrderID int primary key,
+    CustomerID int,
+    ProductID int,
+    OrderDate date,
+    Quantity int,
+    FOREIGN KEY (CustomerID) REFERENCES Customers(Customer_ID),
+    FOREIGN KEY (ProductID) REFERENCES Products(Product_ID) 
+);
+
+insert into customers(Customer_ID,firstname, lastname,email,RegistrationDate) 
+values (1,'mohamed','man' , 'm.walid222@gmail.com','2024-02-25'),
+(2,'zoz','lol' , 'zlol222@gmail.com','2024-02-26'),
+(3,'kol','lel' , 'kollel@gmail.com','2024-02-27'),
+(4,'mar','kkk' , 'markk@gmail.com','2024-02-27'),
+(5,'qwe','olk' , 'qweolk@gmail.com','2024-02-28');
+
+
+insert into products(Product_ID, Productname, category,price,StockQuantity) 
+values (1,'panadol','pharmaceutical',1500,20),
+(2,'redbull','drinks',20,40),
+(3,'v7','drinks',20,40),
+(4,'concor','pharmaceutical',20,40),
+(5,'doubledare','drinks',20,40);
+
+
+
+select * from customers;
+
+select * from products;
+
+select * from customers where RegistrationDate>'2024-02-26';
+
+select top(3) i.price from products as i order by i.price DESC
