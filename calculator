@@ -1,0 +1,33 @@
+
+using System;
+
+public class HelloWorld
+{
+    public static void Main(string[] args)
+    {
+        char op;
+        double num1,num2;
+        bool tamam =false;
+        do{
+        Console.WriteLine ("Enter the first num: ");
+        num1 = Convert.ToDouble(Console.ReadLine());
+        Console.WriteLine ("Enter the second num: ");
+        num2 = Convert.ToDouble(Console.ReadLine());
+        Console.WriteLine ("Enter the Operator: (+,-,*,/)");
+        op = Console.ReadLine()[0];
+        if(op == '+'){Console.WriteLine("result: "+(num1+num2));tamam=true;}
+        else if(op == '-'){Console.WriteLine("result: "+(num1-num2));tamam=true;}
+        else if(op == '*'){Console.WriteLine("result: "+(num1*num2));tamam=true;}
+        else if(op == '/'){
+            if(num2==0)Console.WriteLine("0 division error");tamam=true;}
+        if(!tamam)Console.WriteLine("Wrong operator! Try again");
+        else{
+            Console.WriteLine("Want to try again??(y or n)");
+            char might = Console.ReadLine()[0];
+            if(might == 'y')tamam=false;
+            else tamam = true;
+        }
+        }while(!tamam);
+        Console.WriteLine("Bye!");
+    }
+}
